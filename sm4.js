@@ -1,8 +1,4 @@
 // 国密SM4加密算法
-import {
-  Message
-} from 'element-ui'
-
 /**
  * base64js 
  */
@@ -245,11 +241,11 @@ SM4.fn = SM4.prototype = {
 
   sm4_setkey_enc: function (ctx, key) {
     if (ctx == null) {
-      Message.error("ctx is null!");
+      console.error("ctx is null!");
       return false;
     }
     if (key == null || key.length != 16) {
-      Message.error("key error!");
+      console.error("key error!");
       return false;
     }
     ctx.mode = this.SM4_ENCRYPT;
@@ -259,11 +255,11 @@ SM4.fn = SM4.prototype = {
   // 生成解密密钥
   sm4_setkey_dec: function (ctx, key) {
     if (ctx == null) {
-      Message.error("ctx is null!");
+      console.error("ctx is null!");
     }
 
     if (key == null || key.length != 16) {
-      Message.error("key error!");
+      console.error("key error!");
     }
 
     ctx.mode = 0;
@@ -357,11 +353,11 @@ SM4.fn = SM4.prototype = {
 
   sm4_crypt_cbc: function (ctx, iv, input) {
     if (iv == null || iv.length != 16) {
-      Message.error("iv error!");
+      console.error("iv error!");
     }
 
     if (input == null) {
-      Message.error("input is null!");
+      console.error("input is null!");
     }
 
     if (ctx.isPadding && ctx.mode == this.SM4_ENCRYPT) {
